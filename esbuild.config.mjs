@@ -26,6 +26,9 @@ const myCopy = {
 	name: "my-copy",
 	setup(build) {
 		build.onEnd(async () => {
+			if (!fs.existsSync(PLUGIN_PATH)) {
+				fs.mkdirSync(PLUGIN_PATH);
+			}
 			for (const copyFile of copyFiles) {
 				fs.copyFileSync(copyFile.from, path.join(PLUGIN_PATH, copyFile.to));
 			}

@@ -1,5 +1,6 @@
 import { Plugin } from "obsidian";
 import { App } from "./App";
+import { myRender } from "./myRender";
 
 export default class CreateCodeblock extends Plugin {
 	private _language = "sample";
@@ -8,8 +9,10 @@ export default class CreateCodeblock extends Plugin {
 		this.registerMarkdownCodeBlockProcessor(
 			this._language,
 			async (source, element, context) => {
-				const container = element.createEl("div");
-				const renderer = new App(this, container, source);
+				// pattern 1
+				// myRender(element, source);
+				// pattern 2
+				const renderer = new App(element, source);
 				context.addChild(renderer);
 			},
 		);
