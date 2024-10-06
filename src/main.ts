@@ -1,7 +1,7 @@
 import { Plugin } from "obsidian";
 import { App } from "./App";
 
-export default class EmbedCalendar extends Plugin {
+export default class CreateCodeblock extends Plugin {
 	private _language = "sample";
 
 	async onload() {
